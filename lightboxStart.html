@@ -23,7 +23,33 @@ p{
 	<script type="text/javascript" src="jquery-1.11.1.js"></script>
 	<script type="text/javascript">
 $(document).ready(function(){
+	$("slideshow").append('<div class = "overlay"></div>');
+	$('.overlay').hide();
 
+	$('p.pic').click(function(e){
+		e.preventDefault();
+
+
+		var imagePath = $(this).children('a').attr('href');
+		console.log(imagePath);
+
+
+		var imageMarkup = '<img src = "' + imagePath + '" class = "big">';
+		console.log(imageMarkup);
+
+
+		$('.overlay').append(imageMarkup);
+
+		$('.overlay').fadeIn('slow');
+
+
+		$(".overlay").click(function(e){
+			$(".overlay").fadeOut('slow', function(){
+				$('.overlay img').remove();
+				console.log("overlay hidden");
+			});
+		});
+	});
 });//end ready
 	</script>
 </head>

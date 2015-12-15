@@ -49,10 +49,11 @@ $(document).ready(function(){
 
 		$('.overlay').append(imageMarkup);
 		var imageBig=$('.overlay').children('img');
-
+		console.log("imageBig before load;" + imageBig.width());
 		//using load to obtain data about loaded image
 		//without waiting for load to complete the h and w register 0
 		$(imageBig).load(function(){
+			console.log("imageBig after load;" + imageBig.width());
 			//adding in controls
 			var controls ='<div id = "controls"></div>';
 			// var leftButton = '<div id = "lb">&lsaquo;</div>';
